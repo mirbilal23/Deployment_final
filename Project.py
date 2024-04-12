@@ -25,3 +25,7 @@ data['bedroom_ratio']=data['total_bedrooms']/data['total_rooms']
 data['household_rooms']=data['total_rooms']/data['households']
 plt.figure(figsize=(20,8))
 sns.heatmap(data.corr(), annot=True, cmap="cividis")
+X=data.drop(['median_house_value'],axis=1)
+y=data['median_house_value']
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
