@@ -27,5 +27,14 @@ plt.figure(figsize=(20,8))
 sns.heatmap(data.corr(), annot=True, cmap="cividis")
 X=data.drop(['median_house_value'],axis=1)
 y=data['median_house_value']
+#-------------Linear_regression---------------- 
+model = LinearRegression()
+model.fit(X_train, y_train)
+y_predict = model.predict(X_test)
+
+rmse = np.sqrt(metrics.mean_squared_error(y_test, y_predict))
+r2 = metrics.r2_score(y_test, y_predict)
+print(rmse)
+print(r2)
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
