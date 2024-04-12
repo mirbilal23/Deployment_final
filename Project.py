@@ -21,3 +21,7 @@ print(data)
 print(data.corr())
 plt.figure(figsize=(20,5))
 sns.heatmap(data.corr(), annot=True, cmap="cividis")
+data['bedroom_ratio']=data['total_bedrooms']/data['total_rooms']
+data['household_rooms']=data['total_rooms']/data['households']
+plt.figure(figsize=(20,8))
+sns.heatmap(data.corr(), annot=True, cmap="cividis")
