@@ -10,3 +10,5 @@ data = pd.read_csv('housing.csv')
 data
 data.dropna(inplace=True)
 data.hist(figsize=(20,10))
+plt.figure(figsize=(20,5))
+sns.heatmap(data.corr(), annot=True, cmap="cividis")
